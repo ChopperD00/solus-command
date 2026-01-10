@@ -22,7 +22,7 @@ export function StreamingIndicator() {
               borderColor: `${model.color}30`,
               borderWidth: '1px',
             }}
-         >
+          >
             <span 
               className="w-2 h-2 rounded-full inline-block"
               style={{ backgroundColor: model.color }}
