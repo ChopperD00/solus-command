@@ -136,7 +136,8 @@ body {
 }
 
 .prose code {
-  @apply bg-void-300 px-1.5 py-0.5 rounded text-amber-400 font-mono text-sm;
+  @apply bg-void-300 px-1.5 py-0.5 rounded text-amber-400 text-sm;
+  font-family: var(--font-jetbrains), monospace;
 }
 
 .prose pre {
