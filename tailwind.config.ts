@@ -9,6 +9,7 @@ export default {
   theme: {
     extend: {
       colors: {
+        // Void Dark Palette
         void: {
           base: '#0a0a0f',
           50: '#0f0f14',
@@ -17,6 +18,7 @@ export default {
           300: '#22222c',
           400: '#2c2c38',
         },
+        // Model Colors
         claude: '#d97706',
         gemini: '#3b82f6',
         perplexity: '#8b5cf6',
@@ -24,16 +26,28 @@ export default {
         runway: '#10b981',
         elevenlabs: '#06b6d4',
         heygen: '#f43f5e',
+        // Brand
         solus: '#d97706',
       },
       fontFamily: {
-        display: ['Syne', 'sans-serif'],
-        body: ['Instrument Sans', 'sans-serif'],
-        mono: ['JetBrains Mono', 'monospace'],
+        display: ['var(--font-syne)', 'sans-serif'],
+        body: ['var(--font-instrument)', 'sans-serif'],
+        mono: ['var(--font-jetbrains)', 'monospace'],
       },
       animation: {
-        'fade-in': 'fadeIn 0.3s ease-out forwards',
         'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'glow': 'glow 2s ease-in-out infinite alternate',
+        'typing': 'typing 1s steps(1) infinite',
+      },
+      keyframes: {
+        glow: {
+          '0%': { opacity: '0.5' },
+          '100%': { opacity: '1' },
+        },
+        typing: {
+          '0%, 50%': { opacity: '1' },
+          '51%, 100%': { opacity: '0' },
+        },
       },
     },
   },
