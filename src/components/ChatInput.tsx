@@ -83,6 +83,7 @@ export function ChatInput() {
       let fullContent = '';
       let intent: IntentClassification | undefined;
       let citations: string[] = [];
+      let currentEvent = '';
 
       while (true) {
         const { done, value } = await reader.read();
@@ -92,19 +93,21 @@ export function ChatInput() {
         const lines = chunk.split('\n');
 
         for (const line of lines) {
-          if (line.startsWith('data: ')) {
+          if (line.startsWith('event: ')) {
+            currentEvent = line.slice(7).trim();
+          } else if (line.startsWith('data: ')) {
             try {
               const data = JSON.parse(line.slice(6));
               
-              if (data.type === 'intent') {
-                intent = data.data;
-                setStreaming(true, data.data.suggestedModel as ModelId);
-              } else if (data.type === 'content') {
-                fullContent += data.data;
-                appendStreamContent(data.data);
-              } else if (data.type === 'citations') {
-                citations = data.data;
-              } else if (data.type === 'done') {
+              if (currentEvent === 'intent') {
+                intent = data;
+                setStreaming(true, data.suggestedModel as ModelId);
+              } else if (currentEvent === 'content') {
+                fullContent += data;
+                appendStreamContent(data);
+              } else if (currentEvent === 'citations') {
+                citations = data;
+              } else if (currentEvent === 'done') {
                 // Update final message
                 updateMessage(convId, assistantMessageId, {
                   content: fullContent,
@@ -112,6 +115,7 @@ export function ChatInput() {
                   citations: citations.length > 0 ? citations : undefined,
                   metadata: intent ? { intent } : undefined,
                 });
+              }
               }
             } catch (e) {
               // Skip malformed JSON
