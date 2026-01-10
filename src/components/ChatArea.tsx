@@ -31,8 +31,8 @@ export function ChatArea() {
         </div>
 
         {/* Debug Panel */}
-        {settings.showDebug && (
-          <div className="w-80 border-l border-void-300 bg-void-50/50 overflow-y-auto">
+        {settings.showDebugPanel && (
+          <div className="w-80 border-l overflow-y-auto" style={{ borderColor: '#22222c', backgroundColor: 'rgba(15, 15, 20, 0.5)' }}>
             <IntentDebug />
           </div>
         )}
