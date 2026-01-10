@@ -10,7 +10,7 @@ export function StreamingIndicator() {
   const model = streamState.currentModel ? MODELS[streamState.currentModel] : MODELS.claude;
 
   return (
-    <div className="px-4 py-6 bg-void-50/30">
+    <div className="px-4 py-6" style={{ backgroundColor: 'rgba(15, 15, 20, 0.3)' }}>
       <div className="max-w-4xl mx-auto">
         {/* Model indicator */}
         <div className="flex items-center gap-2 mb-3">
