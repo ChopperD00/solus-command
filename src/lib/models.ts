@@ -72,6 +72,8 @@ export const models: Record<ModelId, ModelConfig> = {
     isAvailable: false,
   },
 };
+// Uppercase alias for components expecting MODELS
+export const MODELS = models;
 
 // Intent to Model mapping
 export const intentModelMap: Record<IntentType, ModelId> = {
