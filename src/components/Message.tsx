@@ -54,29 +54,33 @@ export function Message({ message, showIntentDebug, isLast }: MessageProps) {
         )}
 
         {/* Media */}
-        {message.metadata?.mediaUrl && (
-          <div className="mt-4">
-            {message.metadata.mediaType === 'image' && (
-              <img 
-                src={message.metadata.mediaUrl} 
-                alt="Generated content"
-                className="max-w-full rounded-lg"
-              />
-            )}
-            {message.metadata.mediaType === 'video' && (
-              <video 
-                src={message.metadata.mediaUrl} 
-                controls 
-                className="max-w-full rounded-lg"
-              />
-            )}
-            {message.metadata.mediaType === 'audio' && (
-              <audio 
-                src={message.metadata.mediaUrl} 
-                controls 
-                className="w-full"
-              />
-            )}
+        {message.media && message.media.length > 0 && (
+          <div className="mt-4 space-y-2">
+            {message.media.map((item, index) => (
+              <div key={index}>
+                {item.type === 'image' && (
+                  <img 
+                    src={item.url} 
+                    alt={item.alt || 'Generated content'}
+                    className="max-w-full rounded-lg"
+                  />
+                )}
+                {item.type === 'video' && (
+                  <video 
+                    src={item.url} 
+                    controls 
+                    className="max-w-full rounded-lg"
+                  />
+                )}
+                {item.type === 'audio' && (
+                  <audio 
+                    src={item.url} 
+                    controls 
+                    className="w-full"
+                  />
+                )}
+              </div>
+            ))}
           </div>
         )}
 
