@@ -87,6 +87,7 @@ export interface StreamState {
 // App Settings
 export interface AppSettings {
   autoRoute: boolean;
+  showDebug: boolean;
   defaultModel: ModelId;
   showDebugPanel: boolean;
   streamingEnabled: boolean;
