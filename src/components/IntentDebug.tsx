@@ -72,7 +72,10 @@ export function IntentDebug() {
         <div className="space-y-1">
           {Object.entries(MODELS).map(([id, model]) => (
             <div key={id} className="flex items-center gap-2 text-xs">
-              <span>{model.icon}</span>
+              <span
+                className="w-2 h-2 rounded-full"
+                style={{ backgroundColor: model.color }}
+              />
               <span style={{ color: model.color }}>{model.name}</span>
             </div>
           ))}
