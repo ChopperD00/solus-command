@@ -13,6 +13,7 @@ const initialStreamState: StreamState = {
 const initialSettings: AppSettings = {
   autoRoute: true,
   defaultModel: 'claude',
+  showDebug: false,
   showDebugPanel: false,
   streamingEnabled: true,
   theme: 'dark',
