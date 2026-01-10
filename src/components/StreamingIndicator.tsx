@@ -22,8 +22,11 @@ export function StreamingIndicator() {
               borderColor: `${model.color}30`,
               borderWidth: '1px',
             }}
-          >
-            <span>{model.icon}</span>
+         >
+            <span 
+              className="w-2 h-2 rounded-full inline-block"
+              style={{ backgroundColor: model.color }}
+            />
             <span>{model.name}</span>
           </span>
           <span className="text-xs text-gray-500">is typing...</span>
