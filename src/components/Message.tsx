@@ -16,7 +16,7 @@ export function Message({ message, showIntentDebug, isLast }: MessageProps) {
   const intent = message.metadata?.intent;
 
   return (
-    <div className={`px-4 py-6 ${isUser ? 'bg-void-base' : 'bg-void-50/30'}`}>
+    <div className="px-4 py-6" style={{ backgroundColor: isUser ? '#0a0a0f' : 'rgba(15, 15, 20, 0.3)' }}>
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="flex items-center gap-2 mb-2">
@@ -34,7 +34,7 @@ export function Message({ message, showIntentDebug, isLast }: MessageProps) {
 
         {/* Citations */}
         {message.citations && message.citations.length > 0 && (
-          <div className="mt-4 pt-4 border-t border-void-300">
+          <div className="mt-4 pt-4 border-t" style={{ borderColor: '#22222c' }}>
             <p className="text-xs text-gray-500 mb-2">Sources:</p>
             <div className="space-y-1">
               {message.citations.map((citation, i) => (
@@ -43,7 +43,8 @@ export function Message({ message, showIntentDebug, isLast }: MessageProps) {
                   href={citation}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block text-xs text-solus hover:underline truncate"
+                  className="block text-xs hover:underline truncate"
+                  style={{ color: '#d97706' }}
                 >
                   {citation}
                 </a>
@@ -81,7 +82,7 @@ export function Message({ message, showIntentDebug, isLast }: MessageProps) {
 
         {/* Intent Debug */}
         {showIntentDebug && intent && (
-          <div className="mt-4 p-3 bg-void-200 rounded-lg text-xs">
+          <div className="mt-4 p-3 rounded-lg text-xs" style={{ backgroundColor: '#1a1a22' }}>
             <div className="grid grid-cols-2 gap-2">
               <div>
                 <span className="text-gray-500">Intent:</span>{' '}
