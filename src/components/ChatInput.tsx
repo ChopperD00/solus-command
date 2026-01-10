@@ -116,7 +116,6 @@ export function ChatInput() {
                   metadata: intent ? { intent } : undefined,
                 });
               }
-              }
             } catch (e) {
               // Skip malformed JSON
             }
