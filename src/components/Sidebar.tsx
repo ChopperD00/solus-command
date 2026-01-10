@@ -12,12 +12,13 @@ export function Sidebar() {
   } = useChatStore();
 
   return (
-    <aside className="w-64 bg-void-50 border-r border-void-300 flex flex-col">
+    <aside className="w-64 border-r flex flex-col" style={{ backgroundColor: '#0f0f14', borderColor: '#22222c' }}>
       {/* New Chat Button */}
       <div className="p-3">
         <motion.button
           onClick={() => createConversation()}
-          className="w-full px-4 py-2.5 bg-solus/10 hover:bg-solus/20 text-solus border border-solus/30 rounded-lg text-sm font-medium transition-colors"
+          className="w-full px-4 py-2.5 rounded-lg text-sm font-medium transition-colors"
+          style={{ backgroundColor: 'rgba(217, 119, 6, 0.1)', color: '#d97706', borderWidth: '1px', borderColor: 'rgba(217, 119, 6, 0.3)' }}
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
         >
@@ -37,11 +38,11 @@ export function Sidebar() {
               <motion.button
                 key={conv.id}
                 onClick={() => setCurrentConversation(conv.id)}
-                className={`w-full text-left px-3 py-2.5 rounded-lg text-sm transition-colors ${
-                  currentConversationId === conv.id
-                    ? 'bg-void-300 text-white'
-                    : 'text-gray-400 hover:bg-void-200 hover:text-gray-200'
-                }`}
+                className="w-full text-left px-3 py-2.5 rounded-lg text-sm transition-colors"
+                style={currentConversationId === conv.id
+                  ? { backgroundColor: '#22222c', color: 'white' }
+                  : { color: '#9ca3af' }
+                }
                 whileHover={{ x: 2 }}
               >
                 <div className="truncate font-medium">
@@ -56,7 +57,7 @@ export function Sidebar() {
         )}
       </div>
 
-      <div className="p-3 border-t border-void-300">
+      <div className="p-3 border-t" style={{ borderColor: '#22222c' }}>
         <div className="text-xs text-gray-500 text-center">
           Powered by Multi-Model AI
         </div>
