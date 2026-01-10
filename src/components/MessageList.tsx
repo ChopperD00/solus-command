@@ -18,7 +18,7 @@ export function MessageList({ messages }: MessageListProps) {
         <Message 
           key={message.id} 
           message={message}
-          showIntentDebug={settings.showDebug}
+          showIntentDebug={settings.showDebugPanel}
           isLast={index === messages.length - 1}
         />
       ))}
