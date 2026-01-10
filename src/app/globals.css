@@ -136,14 +136,21 @@ body {
 }
 
 .prose code {
-  @apply bg-void-300 px-1.5 py-0.5 rounded text-amber-400 text-sm;
+  background-color: #22222c;
+  padding: 0.125rem 0.375rem;
+  border-radius: 0.25rem;
+  color: #fbbf24;
+  font-size: 0.875rem;
   font-family: var(--font-jetbrains), monospace;
 }
 
 .prose pre {
-  @apply bg-void-300 p-4 rounded-lg overflow-x-auto my-4;
+  background-color: #22222c;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  margin: 1rem 0;
 }
-
 .prose pre code {
   @apply bg-transparent p-0;
 }
