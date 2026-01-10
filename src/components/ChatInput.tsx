@@ -138,9 +138,9 @@ export function ChatInput() {
   };
 
   return (
-    <div className="border-t border-void-300 bg-void-50 p-4">
+    <div className="border-t p-4" style={{ borderColor: '#22222c', backgroundColor: '#0f0f14' }}>
       <div className="max-w-4xl mx-auto">
-        <div className="relative flex items-end gap-3 bg-void-100 rounded-xl border border-void-300 focus-within:border-solus/50 transition-colors">
+        <div className="relative flex items-end gap-3 rounded-xl border transition-colors" style={{ backgroundColor: '#14141a', borderColor: '#22222c' }}>
           <textarea
             ref={textareaRef}
             value={input}
@@ -155,7 +155,8 @@ export function ChatInput() {
           <motion.button
             onClick={handleSubmit}
             disabled={!input.trim() || streamState.isStreaming}
-            className="m-2 px-4 py-2 bg-solus hover:bg-solus/80 disabled:bg-void-300 disabled:cursor-not-allowed text-white rounded-lg text-sm font-medium transition-colors"
+            className={`m-2 px-4 py-2 text-white rounded-lg text-sm font-medium transition-colors ${!input.trim() || streamState.isStreaming ? 'cursor-not-allowed' : ''}`}
+            style={{ backgroundColor: !input.trim() || streamState.isStreaming ? '#22222c' : '#d97706' }}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
