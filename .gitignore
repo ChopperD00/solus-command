@@ -35,8 +35,5 @@ Thumbs.db
 *.tsbuildinfo
 next-env.d.ts
 
-# Vercel
-.vercel
-
-# Testing
-coverage/
+# Misc
+*.log
